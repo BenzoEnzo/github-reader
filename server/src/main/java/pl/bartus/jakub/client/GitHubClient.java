@@ -18,5 +18,5 @@ public interface GitHubClient {
     @GET
     @Path("/repos/{owner}/{repository}/branches")
     @Produces(MediaType.APPLICATION_JSON)
-    Uni<List<BranchInformation>> getUserGithubBranches(@PathParam("owner") String owner, @PathParam("repository") String repository);
+    Uni<List<BranchInformation>> getUserRepositoryGithubBranches(@PathParam("owner") String owner, @PathParam("repository") String repository);
 }
