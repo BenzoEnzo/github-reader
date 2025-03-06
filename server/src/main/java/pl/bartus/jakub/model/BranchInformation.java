@@ -2,10 +2,16 @@ package pl.bartus.jakub.model;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 
 @Data
 @Builder
-class BranchInformation {
+public class BranchInformation {
     private String name;
-    private String lastCommitSha;
+    private Commit commit;
+
+    @Getter
+    public static class Commit {
+        String sha;
+    }
 }
