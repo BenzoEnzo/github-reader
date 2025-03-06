@@ -6,11 +6,11 @@ import lombok.Getter;
 @Getter
 @Builder
 public class BranchInformation {
-    private String name;
-    private Commit commit;
+    private final String name;
+    private final Commit commit;
 
     @Getter
     public static class Commit {
-        String sha;
+        private String sha;
     }
 }

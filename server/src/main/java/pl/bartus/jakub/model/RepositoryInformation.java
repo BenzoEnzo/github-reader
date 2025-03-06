@@ -7,10 +7,10 @@ import java.util.List;
 @Getter
 @Builder
 public class RepositoryInformation {
-    private String name;
-    private Owner owner;
-    private boolean fork;
-    private List<BranchInformation> branchesInformation;
+    private final String name;
+    private final Owner owner;
+    private final boolean fork;
+    private final List<BranchInformation> branchesInformation;
 
     @Getter
     public static class Owner {
