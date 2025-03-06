@@ -1,5 +1,6 @@
 package pl.bartus.jakub.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Getter;
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 public class RepositoryInformation {
     private final String name;
     private final Owner owner;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private final boolean fork;
     private final List<BranchInformation> branchesInformation;
 
