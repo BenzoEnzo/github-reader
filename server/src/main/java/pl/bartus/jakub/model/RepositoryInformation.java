@@ -1,16 +1,16 @@
 package pl.bartus.jakub.model;
 
-import lombok.*;
-
+import lombok.Builder;
+import lombok.Getter;
 import java.util.List;
 
-@Data
+@Getter
 @Builder
 public class RepositoryInformation {
     private String name;
     private Owner owner;
-    private boolean isFork;
-    private List<BranchInformation> branchInformation;
+    private boolean fork;
+    private List<BranchInformation> branchesInformation;
 
     @Getter
     public static class Owner {
