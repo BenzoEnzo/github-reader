@@ -1,3 +1,4 @@
 package pl.bartus.jakub.model;
 
-public record Owner(String login) {}
+public record Owner(String login) {
+}

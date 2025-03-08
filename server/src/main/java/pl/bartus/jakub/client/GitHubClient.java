@@ -9,6 +9,7 @@ import jakarta.ws.rs.core.MediaType;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 import pl.bartus.jakub.model.BranchInformation;
 import pl.bartus.jakub.model.GitHubInformation;
+
 import java.util.List;
 
 @RegisterRestClient(configKey = "github-api")

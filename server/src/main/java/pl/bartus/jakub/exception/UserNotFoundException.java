@@ -6,6 +6,6 @@ import pl.bartus.jakub.model.ErrorResponse;
 
 @Getter
 @RequiredArgsConstructor
-public class UserNotFoundException extends RuntimeException{
+public class UserNotFoundException extends RuntimeException {
     private final ErrorResponse errorResponse;
 }
