@@ -5,7 +5,7 @@ import org.mapstruct.Mapping;
 import pl.bartus.jakub.model.RepositoryInformation;
 import pl.bartus.jakub.model.external.GitHubRepositoryInformation;
 
-@Mapper(componentModel = "cdi", uses = {BranchMapper.class})
+@Mapper(componentModel = "jakarta-cdi", uses = {BranchMapper.class})
 public interface RepositoryMapper {
 
     @Mapping(target = "username", source = "owner.login")
