@@ -1,7 +1,5 @@
 # Github reader 
 
-![Coverage](https://img.shields.io/badge/coverage-83%25-green)
-
 Github reader is a Quarkus application that integrates with the GitHub API
 to fetch repositories and their branch information for a given GitHub user.
 
