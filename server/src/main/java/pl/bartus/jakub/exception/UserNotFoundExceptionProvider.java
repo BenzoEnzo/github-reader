@@ -1,13 +1,12 @@
-package pl.bartus.jakub.mapper;
+package pl.bartus.jakub.exception;
 
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.ExceptionMapper;
 import jakarta.ws.rs.ext.Provider;
-import pl.bartus.jakub.exception.UserNotFoundException;
 import pl.bartus.jakub.model.ErrorResponse;
 
 @Provider
-public class UserNotFoundExceptionMapper implements ExceptionMapper<UserNotFoundException> {
+public class UserNotFoundExceptionProvider implements ExceptionMapper<UserNotFoundException> {
 
     @Override
     public Response toResponse(UserNotFoundException exception) {

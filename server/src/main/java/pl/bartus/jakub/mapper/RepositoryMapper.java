@@ -1,23 +1,10 @@
 package pl.bartus.jakub.mapper;
 
-import pl.bartus.jakub.model.BranchInformation;
+import org.mapstruct.Mapper;
+import pl.bartus.jakub.model.GitHubInformation;
 import pl.bartus.jakub.model.RepositoryInformation;
-import java.util.List;
 
-public class RepositoryMapper {
-
-    public static RepositoryInformation mapToRepositoryInformation(RepositoryInformation repositoryInformation, List<BranchInformation> branches) {
-        List<BranchInformation> branchesInfo = branches.stream()
-                .map(branch -> BranchInformation.builder()
-                        .name(branch.getName())
-                        .commit(branch.getCommit())
-                        .build())
-                .toList();
-
-        return RepositoryInformation.builder()
-                .name(repositoryInformation.getName())
-                .owner(repositoryInformation.getOwner())
-                .branchesInformation(branchesInfo)
-                .build();
-    }
+@Mapper(componentModel = "cdi")
+public interface RepositoryMapper {
+    RepositoryInformation mapToRepositoryInformation(GitHubInformation gitHubInformation);
 }
