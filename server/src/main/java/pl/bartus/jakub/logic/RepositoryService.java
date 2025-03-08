@@ -9,7 +9,7 @@ import pl.bartus.jakub.client.GitHubClient;
 import pl.bartus.jakub.exception.UserNotFoundException;
 import pl.bartus.jakub.mapper.RepositoryMapper;
 import pl.bartus.jakub.model.ErrorResponse;
-import pl.bartus.jakub.model.GitHubInformation;
+import pl.bartus.jakub.model.external.GitHubRepositoryInformation;
 import pl.bartus.jakub.model.RepositoryInformation;
 
 import java.util.List;
@@ -33,7 +33,7 @@ public class RepositoryService {
                 );
     }
 
-    private Uni<List<GitHubInformation>> fetchGitHubRepositories(String username) {
+    private Uni<List<GitHubRepositoryInformation>> fetchGitHubRepositories(String username) {
         return gitHubClient.getGithubRepositories(username)
                 .onItem().transform(repositories -> {
                     if (repositories == null || repositories.isEmpty()) {
@@ -45,10 +45,10 @@ public class RepositoryService {
                 });
     }
 
-    private Uni<RepositoryInformation> enrichRepository(GitHubInformation repo) {
+    private Uni<RepositoryInformation> enrichRepository(GitHubRepositoryInformation repo) {
         return gitHubClient.getGithubRepositoryBranches(repo.owner().login(), repo.name())
                 .onItem().transform(branches -> {
-                    GitHubInformation updatedRepo = new GitHubInformation(
+                    GitHubRepositoryInformation updatedRepo = new GitHubRepositoryInformation(
                             repo.name(),
                             repo.owner(),
                             repo.fork(),

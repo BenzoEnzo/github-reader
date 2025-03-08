@@ -1,10 +1,13 @@
 package pl.bartus.jakub.mapper;
 
 import org.mapstruct.Mapper;
-import pl.bartus.jakub.model.GitHubInformation;
+import org.mapstruct.Mapping;
 import pl.bartus.jakub.model.RepositoryInformation;
+import pl.bartus.jakub.model.external.GitHubRepositoryInformation;
 
-@Mapper(componentModel = "cdi")
+@Mapper(componentModel = "cdi", uses = {BranchMapper.class})
 public interface RepositoryMapper {
-    RepositoryInformation mapToRepositoryInformation(GitHubInformation gitHubInformation);
+
+    @Mapping(target = "username", source = "owner.login")
+    RepositoryInformation mapToRepositoryInformation(GitHubRepositoryInformation gitHubRepositoryInformation);
 }

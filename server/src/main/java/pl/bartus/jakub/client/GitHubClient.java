@@ -7,8 +7,8 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.core.MediaType;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
-import pl.bartus.jakub.model.BranchInformation;
-import pl.bartus.jakub.model.GitHubInformation;
+import pl.bartus.jakub.model.external.GitHubBranchInformation;
+import pl.bartus.jakub.model.external.GitHubRepositoryInformation;
 
 import java.util.List;
 
@@ -17,10 +17,10 @@ public interface GitHubClient {
     @GET
     @Path("/users/{username}/repos")
     @Produces(MediaType.APPLICATION_JSON)
-    Uni<List<GitHubInformation>> getGithubRepositories(@PathParam("username") String username);
+    Uni<List<GitHubRepositoryInformation>> getGithubRepositories(@PathParam("username") String username);
 
     @GET
     @Path("/repos/{owner}/{repository}/branches")
     @Produces(MediaType.APPLICATION_JSON)
-    Uni<List<BranchInformation>> getGithubRepositoryBranches(@PathParam("owner") String owner, @PathParam("repository") String repository);
+    Uni<List<GitHubBranchInformation>> getGithubRepositoryBranches(@PathParam("owner") String owner, @PathParam("repository") String repository);
 }
